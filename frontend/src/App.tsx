@@ -1,10 +1,11 @@
 import "./App.css";
-
+import { AppRoutes } from "./routes";
+import { ThemeProvider } from "./components/thems-provider";
 function App() {
   return (
-    <>
-      <p className="text-red-500">hello</p>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <AppRoutes />
+    </ThemeProvider>
   );
 }
 
