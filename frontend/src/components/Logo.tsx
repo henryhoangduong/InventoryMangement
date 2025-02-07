@@ -3,9 +3,9 @@ import { Target } from "lucide-react";
 
 const Logo = () => {
   return (
-    <div className="flex flex-row gap-2">
+    <div className="flex flex-row gap-2 items-center">
       <Target />
-      <p className="font-bold text-lg">Inventory Managent</p>
+      <p className="font-bold text-[20px]">Inventory Managent</p>
     </div>
   );
 };

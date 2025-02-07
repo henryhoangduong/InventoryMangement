@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-
+import { toast } from "sonner";
+import { useNavigate } from "react-router";
 type AUTHTYPE = {
   login: (email: string, password: string) => void;
   logout: () => void;
@@ -9,9 +10,18 @@ type AUTHTYPE = {
 const AuthContext = createContext<AUTHTYPE>({} as AUTHTYPE);
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
-  const [isAuth, setIsAuth] = useState<boolean>(false);
-
-  const login = async (email: string, password: string) => {};
+  const [isAuth, setIsAuth] = useState<boolean>(true);
+  const nav = useNavigate();
+  const login = async (email: string, password: string) => {
+    toast.loading("authenticating.....", {
+      id: "login",
+    });
+    toast.success("Successful login", {
+      id: "login",
+    });
+    setIsAuth(true);
+    nav("/");
+  };
   const logout = () => {};
   return (
     <AuthContext.Provider value={{ login, logout, isAuth }}>

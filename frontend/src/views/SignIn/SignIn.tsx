@@ -5,12 +5,13 @@ import { useState } from "react";
 import { Input } from "../../components/ui/input";
 import { FormMessage } from "../../components/ui/form";
 import Logo from "../../components/Logo";
+import { useAuth } from "../../context/AuthContext";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const { login } = useAuth();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!email || !password) {
       setError("Both email and password are required.");
@@ -18,6 +19,8 @@ const SignIn = () => {
       setError("");
       console.log("Form submitted", { email, password });
     }
+
+    await login(email, password);
   };
   return (
     <div className="w-[20vw] h-[50vh] p-4 border rounded-lg shadow-md">
