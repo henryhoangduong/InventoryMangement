@@ -9,11 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class DevaInventoryApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DevaInventoryApplication.class, args);
-	}
-@Bean
-public PasswordEncoder encoder() {
-    return new BCryptPasswordEncoder();
-}
+    public static void main(String[] args) {
+        SpringApplication.run(DevaInventoryApplication.class, args);
+    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

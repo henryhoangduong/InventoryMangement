@@ -10,9 +10,11 @@ import com.inventory.deva_inventory.dao.UserRepository;
 import com.inventory.deva_inventory.model.Role;
 import com.inventory.deva_inventory.model.User;
 import com.inventory.deva_inventory.service.UserService;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,35 +26,34 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
- *e
+ * e
+ *
  * @author best
  */
 @Service("userDetailService")
-public class UserServiceImpl implements UserService,UserDetailsService{
+public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     private UserRepository userDao;
     @Autowired
     private RoleRepository roleDao;
     @Autowired
-private PasswordEncoder encoder;
+    private PasswordEncoder encoder;
+
     @Override
-    public User saveUser(Integer roleId,User user) {
-        
+    public User saveUser(Integer roleId, User user) {
+
 //        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-         Role role = roleDao.getById(roleId);
-          System.out.println(role);
+        Role role = roleDao.getById(roleId);
+        System.out.println(role);
         try {
-         
-              user.setPassword(encoder.encode(user.getPassword()));
-              user.setUserStatus("enabled");
-                user.addRole(role);
-              user = userDao.save(user);
-            
-            
-                 System.out.println(user);
-            
+            user.setPassword(encoder.encode(user.getPassword()));
+            user.setUserStatus("enabled");
+            user.addRole(role);
+            user = userDao.save(user);
+            System.out.println(user);
+
         } catch (Exception e) {
-            user =null;
+            user = null;
         }
         return user;
     }
@@ -69,31 +70,31 @@ private PasswordEncoder encoder;
 
     @Override
     public List<User> listUsers() {
-      List<User > listUser = null;
+        List<User> listUser = null;
         try {
-             listUser = userDao.findAll();
+            listUser = userDao.findAll();
         } catch (Exception e) {
         }
-  return  listUser;
-    }    
+        return listUser;
+    }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    User user = userDao.findByUserName(username);
-    if(user == null){
-        throw  new UsernameNotFoundException("no user with this user name found");
-    }
-    else{
-           Collection<SimpleGrantedAuthority> authList =  new ArrayList<>();
-           user.getRoles().forEach(role -> {
-            authList.add(new SimpleGrantedAuthority(role.getRoleName()));
-           });
-        return new org.springframework.security.core.userdetails.User(
-					user.getUserName(),
-                                        user.getPassword(),
-					authList);
-    }
-  
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userDao.findByEmail(email);
+        if (user == null) {
+            throw new UsernameNotFoundException("no user with this user name found");
+        } else {
+            Collection<SimpleGrantedAuthority> authList = new ArrayList<>();
+            System.out.println(user);
+            user.getRoles().forEach(role -> {
+                authList.add(new SimpleGrantedAuthority(role.getRoleName()));
+            });
+            return new org.springframework.security.core.userdetails.User(
+                    user.getUserName(),
+                    user.getPassword(),
+                    authList);
+        }
+
     }
 //    
 }

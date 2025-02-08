@@ -1,4 +1,11 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  WalletCards,
+  User,
+  Barcode,
+  Settings,
+  LayoutDashboard,
+  ContactRound,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -15,24 +22,44 @@ import Logo from "./Logo";
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
-    icon: Home,
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: LayoutDashboard,
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
+    title: "Customer",
+    url: "/customer",
+    icon: ContactRound,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    title: "Users",
+    url: "/users",
+    icon: User,
   },
   {
-    title: "Search",
+    title: "Products",
     url: "#",
-    icon: Search,
+    icon: Barcode,
+  },
+  {
+    title: "Order",
+    url: "#",
+    icon: WalletCards,
+  },
+  {
+    title: "Suppliers",
+    url: "/suppliers",
+    icon: WalletCards,
+  },
+  {
+    title: "Companies",
+    url: "/companies",
+    icon: WalletCards,
+  },
+    {
+    title: "Stores",
+    url: "/stores",
+    icon: WalletCards,
   },
   {
     title: "Settings",
@@ -55,7 +82,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="text-black">
+                    <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>

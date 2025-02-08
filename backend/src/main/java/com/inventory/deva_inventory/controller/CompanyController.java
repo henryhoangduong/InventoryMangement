@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * @author best
  */
 @RestController
@@ -29,22 +28,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
     @Autowired
     private CompanyService compService;
-       
-  @PostMapping("/company")
-    public ResponseEntity<Company> saveCompany(@RequestBody Company companyData){
-    Company comp = compService.saveCompany(companyData);
-        return  ResponseEntity.ok(comp);
-    }
-    @PutMapping("/company/{companyId}")
-    public ResponseEntity<Company> updateCompany(@PathVariable Integer companyId,@RequestBody Company companyData){
-        Company comp = compService.editCompany(companyId, companyData);
- 
+
+    @PostMapping("/company")
+    public ResponseEntity<Company> saveCompany(@RequestBody Company companyData) {
+        Company comp = compService.saveCompany(companyData);
         return ResponseEntity.ok(comp);
     }
+
+    @PutMapping("/company/{companyId}")
+    public ResponseEntity<Company> updateCompany(@PathVariable Integer companyId, @RequestBody Company companyData) {
+        Company comp = compService.editCompany(companyId, companyData);
+
+        return ResponseEntity.ok(comp);
+    }
+
     @GetMapping("/company")
-    public ResponseEntity< Company > getAllCompany(){
-          Company  listCompany = compService.findCompany();
+    public ResponseEntity<Company> getAllCompany() {
+        Company listCompany = compService.findCompany();
         return ResponseEntity.ok().body(listCompany);
     }
-    
+
 }

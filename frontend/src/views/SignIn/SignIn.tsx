@@ -7,8 +7,8 @@ import { FormMessage } from "../../components/ui/form";
 import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@gmail.com");
+  const [password, setPassword] = useState("123456");
   const [error, setError] = useState("");
   const { login } = useAuth();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -23,7 +23,7 @@ const SignIn = () => {
     await login(email, password);
   };
   return (
-    <div className="w-[20vw] h-[50vh] p-4 border rounded-lg shadow-md">
+    <div className="w-[20vw] h-[50vh] p-4 border rounded-lg shadow-md left-[50%] transform -translate-x-1/2 relative translate-y-1/2">
       <form
         onSubmit={handleSubmit}
         className="h-full flex flex-col items-center gap-8"

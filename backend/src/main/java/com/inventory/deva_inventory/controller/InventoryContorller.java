@@ -7,9 +7,11 @@ package com.inventory.deva_inventory.controller;
 import com.inventory.deva_inventory.model.Inventory;
 import com.inventory.deva_inventory.model.OrderProduct;
 import com.inventory.deva_inventory.service.InventoryService;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * @author mntemnte
  */
 @RestController
@@ -31,25 +32,25 @@ public class InventoryContorller {
 
     @Autowired
     private InventoryService invService;
-    
+
     @PostMapping("/inventories/{storeId}")
-    public ResponseEntity<Inventory> saveInventory(@PathVariable Integer storeId, @RequestBody Inventory inv) {        
-        
+    public ResponseEntity<Inventory> saveInventory(@PathVariable Integer storeId, @RequestBody Inventory inv) {
+
         Inventory inventory = invService.saveInventory(storeId, inv);
-        
+
         return ResponseEntity.ok().body(inventory);
     }
 
     @PutMapping("/inventories/{inventoryId}/{storeId}")
     public ResponseEntity<Inventory> updateInventory(@PathVariable Integer inventoryId, @PathVariable Integer storeId, @RequestBody Inventory invData) {
-        
+
         Inventory inv = invService.editInventory(inventoryId, storeId, invData);
         return ResponseEntity.ok().body(inv);
     }
 
     @GetMapping("/inventories")
     public ResponseEntity<List<Inventory>> getAllInventories() {
-        
+
         List<Inventory> listInv = invService.listAllInventorys();
         return ResponseEntity.ok().body(listInv);
     }
@@ -63,9 +64,9 @@ public class InventoryContorller {
     @DeleteMapping("/inventories/{inventoryId}")
     public ResponseEntity<Map<String, Boolean>> deleteInventory(@PathVariable Integer inventoryId) {
         invService.deleteInventory(inventoryId);
-       Map<String, Boolean> response = new HashMap<>();
+        Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-    
+
 }

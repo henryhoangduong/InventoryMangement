@@ -6,9 +6,11 @@ package com.inventory.deva_inventory.controller;
 
 import com.inventory.deva_inventory.model.SuppliedProduct;
 import com.inventory.deva_inventory.service.SuppliedProductService;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,56 +27,62 @@ import org.springframework.web.bind.annotation.RestController;
 public class SuppliedProductController {
     @Autowired
     private SuppliedProductService supProductService;
-    
-    
+
+
     @PostMapping("/supplied-products/{saleOrderId}")
-   public ResponseEntity<SuppliedProduct> saveSuppledProduct(@PathVariable Integer saleOrderId ,@RequestBody SuppliedProduct supProData){ 
-           SuppliedProduct supProduct = supProductService.saveSuppliedProduct(saleOrderId, supProData);
-        return  ResponseEntity.ok().body(supProduct);
+    public ResponseEntity<SuppliedProduct> saveSuppledProduct(@PathVariable Integer saleOrderId, @RequestBody SuppliedProduct supProData) {
+        SuppliedProduct supProduct = supProductService.saveSuppliedProduct(saleOrderId, supProData);
+        return ResponseEntity.ok().body(supProduct);
     }
+
     @PutMapping("/supplied-products/{saleOrderId}")
-    public ResponseEntity<SuppliedProduct> updateSuppliedProduct(@PathVariable Integer saleOrderId,@RequestBody SuppliedProduct supProduct){
-        
-         SuppliedProduct suppliedProduct = supProductService.editSuppliedProduct(saleOrderId, supProduct);
+    public ResponseEntity<SuppliedProduct> updateSuppliedProduct(@PathVariable Integer saleOrderId, @RequestBody SuppliedProduct supProduct) {
+
+        SuppliedProduct suppliedProduct = supProductService.editSuppliedProduct(saleOrderId, supProduct);
         return ResponseEntity.ok().body(suppliedProduct);
     }
+
     @GetMapping("/supplied-products")
-    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProducts(){
-       
-         List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProduct();
+    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProducts() {
+
+        List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProduct();
         return ResponseEntity.ok().body(listSuppliedPro);
     }
-       @GetMapping("/supplied-products/{saleOrderId}")
-    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProductsBySaleOrderId(@PathVariable Integer saleOrderId){
-       
-         List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySaleOrderId(saleOrderId);
+
+    @GetMapping("/supplied-products/{saleOrderId}")
+    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProductsBySaleOrderId(@PathVariable Integer saleOrderId) {
+
+        List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySaleOrderId(saleOrderId);
         return ResponseEntity.ok().body(listSuppliedPro);
     }
-       @GetMapping("/supplied-products/order/{orderId}")
-    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProductsByOrderId(@PathVariable Integer orderId){
-       
-         List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductByrderId(orderId);
+
+    @GetMapping("/supplied-products/order/{orderId}")
+    public ResponseEntity<List<SuppliedProduct>> getAllSuppliedProductsByOrderId(@PathVariable Integer orderId) {
+
+        List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductByrderId(orderId);
         return ResponseEntity.ok().body(listSuppliedPro);
     }
-        @GetMapping("/supplied-products/send")
-    public ResponseEntity<List<SuppliedProduct>> getAllSendProduct(){
-       
-         List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySuppliedStatus();
+
+    @GetMapping("/supplied-products/send")
+    public ResponseEntity<List<SuppliedProduct>> getAllSendProduct() {
+
+        List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySuppliedStatus();
         return ResponseEntity.ok().body(listSuppliedPro);
     }
-    
-      @GetMapping("/supplied-products/recieved")
-    public ResponseEntity<List<SuppliedProduct>> getAllRecievedProduct(){
-       
-         List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySuppliedRecieved();
+
+    @GetMapping("/supplied-products/recieved")
+    public ResponseEntity<List<SuppliedProduct>> getAllRecievedProduct() {
+
+        List<SuppliedProduct> listSuppliedPro = supProductService.listAllSuppliedProductBySuppliedRecieved();
         return ResponseEntity.ok().body(listSuppliedPro);
     }
+
     @DeleteMapping("/supplied-products/{suppliedProductId}")
-    public ResponseEntity<Map<String,Boolean>> deleteSuppliedProduct(@PathVariable Integer suppliedProductId){
-         supProductService.deleteSuppliedProduct(suppliedProductId);
-        Map<String,Boolean> response = new HashMap<>();
-         response.put("deleted", Boolean.TRUE);
-         return ResponseEntity.ok(response);
+    public ResponseEntity<Map<String, Boolean>> deleteSuppliedProduct(@PathVariable Integer suppliedProductId) {
+        supProductService.deleteSuppliedProduct(suppliedProductId);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
-    
+
 }
