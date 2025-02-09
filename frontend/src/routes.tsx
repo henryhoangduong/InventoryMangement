@@ -5,6 +5,7 @@ import { useAuth } from "./context/AuthContext";
 import Home from "./views/Dashboard/Home";
 import AdminLayout from "./layout/admin-layout";
 import Users from "./views/Users/Users";
+import Product from "./views/Product/product";
 const PrivateRoutes = () => {
   const { isAuth } = useAuth();
 
@@ -29,6 +30,7 @@ export const AppRoutes = () => {
         <Route path="/" element={<AdminLayout />}>
           <Route path="/dashboard" element={<Home />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/products" element={<Product />} />
         </Route>
         {/* Add more protected routes here */}
       </Route>

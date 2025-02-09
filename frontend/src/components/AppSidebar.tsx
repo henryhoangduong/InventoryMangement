@@ -38,7 +38,7 @@ const items = [
   },
   {
     title: "Products",
-    url: "#",
+    url: "/products",
     icon: Barcode,
   },
   {
@@ -56,7 +56,7 @@ const items = [
     url: "/companies",
     icon: WalletCards,
   },
-    {
+  {
     title: "Stores",
     url: "/stores",
     icon: WalletCards,

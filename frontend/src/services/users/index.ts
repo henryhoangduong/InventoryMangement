@@ -6,7 +6,6 @@ const getAllUsers = async () => {
 
   try {
     const res = await apiClient.get("/api/users");
-
     toast.success("Users loaded successfully!"); // Success toast
     return res.data;
   } catch (error) {
