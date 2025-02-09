@@ -19,6 +19,8 @@ import {
   SidebarHeader,
 } from "./ui/sidebar";
 import Logo from "./Logo";
+import { useTheme } from "./thems-provider";
+import { cn } from "../lib/utils";
 // Menu items.
 const items = [
   {
@@ -69,6 +71,7 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const theme = useTheme();
   return (
     <Sidebar>
       <SidebarContent>
@@ -78,11 +81,11 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu >
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <a href={item.url} className={cn(theme.theme =="light" ?"text-black":"text-white")}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>
