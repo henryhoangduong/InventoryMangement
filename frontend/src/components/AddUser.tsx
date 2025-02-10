@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Plus, X } from "lucide-react";
 import {
   AlertDialog,
@@ -24,6 +24,7 @@ import {
 } from "@radix-ui/react-alert-dialog";
 import { cn } from "../lib/utils";
 import { useTheme } from "./thems-provider";
+import { getRoles } from "../services/role";
 interface FormData {
   email: string;
   password: string;
@@ -35,6 +36,22 @@ interface FormData {
 
 const AddUser = () => {
   const theme = useTheme();
+  const [roles, setRoles] = useState([]);
+
+  useEffect(() => {
+    const fetchRoles = async () => {
+      try {
+        const res = await getRoles();
+        if (res) {
+          setRoles(res);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchRoles();
+  }, []);
+
   // Initialize the form with react-hook-form
   const form = useForm<FormData>();
 

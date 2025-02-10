@@ -81,11 +81,16 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu >
+            <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className={cn(theme.theme =="light" ?"text-black":"text-white")}>
+                    <a
+                      href={item.url}
+                      className={cn(
+                        theme.theme == "light" ? "text-black" : "text-white",
+                      )}
+                    >
                       <item.icon />
                       <span>{item.title}</span>
                     </a>

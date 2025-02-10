@@ -21,7 +21,6 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null | unknown>(null);
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -44,54 +43,53 @@ const Product = () => {
     <div className="p-4 flex flex-col gap-3">
       <Card>
         <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="text-center">ID</TableHead>
-            <TableHead className="text-center">Avatar</TableHead>
-            <TableHead className="text-center">First Name</TableHead>
-            <TableHead className="hidden sm:table-cell text-center">
-              Last Name
-            </TableHead>
-            <TableHead className="hidden md:table-cell text-center">
-              Email
-            </TableHead>
-            <TableHead className="hidden sm:table-cell text-center">
-              User Name
-            </TableHead>
-            <TableHead className="text-center">Status</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {products.map((item: any, index) => {
-            return (
-              <TableRow>
-                {" "}
-                <TableCell className="text-center" key={index}>
-                  {item?.userId}
-                </TableCell>
-                <TableCell className="text-center" key={index}>
-                  {item?.firstName}
-                </TableCell>
-                <TableCell key={index}>{item?.lastName}</TableCell>
-                <TableCell key={index}>{item?.email}</TableCell>
-                <TableCell key={index}>{item?.userName}</TableCell>
-                <TableCell key={index}>
-                  <Badge color="green">{item?.userStatus}</Badge>
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="bg-transparent">
-                      <EllipsisVertical size={16} />
-                    </DropdownMenuTrigger>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>      
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">ID</TableHead>
+              <TableHead className="text-center">Avatar</TableHead>
+              <TableHead className="text-center">First Name</TableHead>
+              <TableHead className="hidden sm:table-cell text-center">
+                Last Name
+              </TableHead>
+              <TableHead className="hidden md:table-cell text-center">
+                Email
+              </TableHead>
+              <TableHead className="hidden sm:table-cell text-center">
+                User Name
+              </TableHead>
+              <TableHead className="text-center">Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {products.map((item: any, index) => {
+              return (
+                <TableRow>
+                  {" "}
+                  <TableCell className="text-center" key={index}>
+                    {item?.userId}
+                  </TableCell>
+                  <TableCell className="text-center" key={index}>
+                    {item?.firstName}
+                  </TableCell>
+                  <TableCell key={index}>{item?.lastName}</TableCell>
+                  <TableCell key={index}>{item?.email}</TableCell>
+                  <TableCell key={index}>{item?.userName}</TableCell>
+                  <TableCell key={index}>
+                    <Badge color="green">{item?.userStatus}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="bg-transparent">
+                        <EllipsisVertical size={16} />
+                      </DropdownMenuTrigger>
+                    </DropdownMenu>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
       </Card>
-
     </div>
   );
 };
