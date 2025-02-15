@@ -1,7 +1,6 @@
 
-package com.inventory.deva_inventory.dao;
+package com.inventory.deva_inventory.repository;
 
-import com.inventory.deva_inventory.model.Product;
 import com.inventory.deva_inventory.model.SaleOrder;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

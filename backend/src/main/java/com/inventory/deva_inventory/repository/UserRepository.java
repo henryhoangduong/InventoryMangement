@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.inventory.deva_inventory.dao;
+package com.inventory.deva_inventory.repository;
 
-import com.inventory.deva_inventory.model.Customer;
+import com.inventory.deva_inventory.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author best
- */
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long>{
-    
+public interface UserRepository  extends JpaRepository<User, Integer>{
+     public User  findByUserName(String userName);
+     public User findByEmail(String email);
 }

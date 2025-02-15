@@ -34,7 +34,6 @@ const Users = () => {
         const fetchUsers = async () => {
             try {
                 const usersData = await getAllUsers();
-                console.log(usersData);
                 setUsers(usersData);
                 setLoading(false);
             } catch (err) {

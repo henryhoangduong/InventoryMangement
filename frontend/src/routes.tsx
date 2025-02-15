@@ -6,15 +6,19 @@ import Home from './views/Dashboard/Home';
 import AdminLayout from './layout/admin-layout';
 import Users from './views/Users/Users';
 import Product from './views/Product/product';
+import Supplier from './views/Supplier/Supplier';
+import Brand from './views/Brands/Brand';
+import Customer from './views/Customer/customer';
+import Companies from './views/Companies/Companies';
+import Stores from './views/Stores/Stores';
+import Orders from './views/Orders/Orders';
 const PrivateRoutes = () => {
     const { isAuth } = useAuth();
 
-    // If the user is not authenticated, redirect them to the sign-in page
     if (!isAuth) {
         return <Navigate to="/sign-in" />;
     }
 
-    // If authenticated, render the child routes
     return <Outlet />;
 };
 
@@ -31,6 +35,12 @@ export const AppRoutes = () => {
                     <Route path="/dashboard" element={<Home />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/products" element={<Product />} />
+                    <Route path="/suppliers" element={<Supplier />} />
+                    <Route path="/brands" element={<Brand />} />
+                    <Route path="/customer" element={<Customer />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/companies" element={<Companies />} />
+                    <Route path="/stores" element={<Stores />} />
                 </Route>
                 {/* Add more protected routes here */}
             </Route>

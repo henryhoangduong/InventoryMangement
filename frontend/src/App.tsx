@@ -2,8 +2,8 @@ import './App.css';
 import { AppRoutes } from './routes';
 import { ThemeProvider } from './components/thems-provider';
 import { Toaster } from 'sonner';
-import { SidebarProvider } from './components/ui/sidebar';
-import { Container, Theme } from '@radix-ui/themes';
+import { SidebarProvider, SidebarTrigger } from './components/ui/sidebar';
+import { Theme } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Theme>
                 <SidebarProvider>
+                    <SidebarTrigger />
                     <AppRoutes />
                 </SidebarProvider>
                 <Toaster />

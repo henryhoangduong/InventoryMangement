@@ -5,6 +5,11 @@ import {
     Settings,
     LayoutDashboard,
     ContactRound,
+    CalendarArrowUpIcon,
+    Container,
+    Building2,
+    Store,
+    TriangleAlertIcon,
 } from 'lucide-react';
 
 import {
@@ -44,24 +49,29 @@ const items = [
         icon: Barcode,
     },
     {
-        title: 'Order',
-        url: '#',
-        icon: WalletCards,
+        title: 'Orders',
+        url: '/orders',
+        icon: CalendarArrowUpIcon,
     },
     {
         title: 'Suppliers',
         url: '/suppliers',
-        icon: WalletCards,
+        icon: Container,
     },
     {
         title: 'Companies',
         url: '/companies',
-        icon: WalletCards,
+        icon: Building2,
     },
     {
         title: 'Stores',
         url: '/stores',
-        icon: WalletCards,
+        icon: Store,
+    },
+    {
+        title: 'Brands',
+        url: '/brands',
+        icon: TriangleAlertIcon,
     },
     {
         title: 'Settings',

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.inventory.deva_inventory.dao;
+package com.inventory.deva_inventory.repository;
 
-import com.inventory.deva_inventory.model.Role;
+import com.inventory.deva_inventory.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author best
  */
 @Repository
-public interface RoleRepository  extends JpaRepository<Role, Integer>{
-    public Role  findByRoleName(String roleName); 
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
+    
 }

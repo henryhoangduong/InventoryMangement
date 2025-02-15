@@ -1,5 +1,5 @@
 
-package com.inventory.deva_inventory.dao;
+package com.inventory.deva_inventory.repository;
 
 import com.inventory.deva_inventory.model.Inventory;
 import java.util.List;
