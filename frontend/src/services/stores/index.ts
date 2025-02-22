@@ -27,7 +27,7 @@ const addStore = async ({ ...args }: AddStoreType) => {
         toast.success(`Category ${args.storeName} created successfully 🎉 `, {
             id: 'create-store',
         });
-        const res = await apiClient.post(`/api/stores/${args.companyId}`, args)
+        const res = await apiClient.post(`/api/stores/${args.companyId}`, args);
         if (res) {
             return true;
         }

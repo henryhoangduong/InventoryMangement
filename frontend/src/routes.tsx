@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router';
 import SignIn from './views/SignIn/SignIn';
 import { Outlet, Navigate } from 'react-router-dom'; // Correct imports for routing
 import { useAuth } from './context/AuthContext';
-import Home from './views/Dashboard/Home';
+import Home from './views/Dashboard/Dashboard';
 import AdminLayout from './layout/admin-layout';
 import Users from './views/Users/Users';
 import Product from './views/Product/product';

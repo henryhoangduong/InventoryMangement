@@ -24,6 +24,8 @@ import {
 } from '../../components/ui/table';
 import { Button } from '../../components/ui/button';
 import { MoveHorizontalIcon } from 'lucide-react';
+import CountUp from 'react-countup';
+
 const Dashboard = () => {
     return (
         <div className="p-5">
@@ -31,7 +33,15 @@ const Dashboard = () => {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>Total Users</CardDescription>
-                        <CardTitle className="text-4xl">2,456</CardTitle>
+                        <CardTitle className="text-4xl">
+                            {' '}
+                            <CountUp
+                                preserveValue
+                                redraw={false}
+                                end={2456}
+                                decimal="2"
+                            />
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-xs text-muted-foreground">
@@ -45,7 +55,15 @@ const Dashboard = () => {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>Total Products</CardDescription>
-                        <CardTitle className="text-4xl">1,234</CardTitle>
+                        <CardTitle className="text-4xl">
+                            {' '}
+                            <CountUp
+                                preserveValue
+                                redraw={false}
+                                end={1234}
+                                decimal="2"
+                            />
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-xs text-muted-foreground">
@@ -59,7 +77,14 @@ const Dashboard = () => {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>Total Orders</CardDescription>
-                        <CardTitle className="text-4xl">789</CardTitle>
+                        <CardTitle className="text-4xl">
+                            <CountUp
+                                preserveValue
+                                redraw={false}
+                                end={397}
+                                decimal="2"
+                            />
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-xs text-muted-foreground">
@@ -73,7 +98,15 @@ const Dashboard = () => {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>Total Revenue</CardDescription>
-                        <CardTitle className="text-4xl">$45,678</CardTitle>
+                        <CardTitle className="text-4xl">
+                            ${' '}
+                            <CountUp
+                                preserveValue
+                                redraw={false}
+                                end={347389}
+                                decimal="2"
+                            />
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-xs text-muted-foreground">
@@ -143,6 +176,98 @@ const Dashboard = () => {
                                                 className="bg-transparent"
                                                 asChild
                                             >
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                >
+                                                    <MoveHorizontalIcon className="h-4 w-4" />
+                                                    <span className="sr-only">
+                                                        Actions
+                                                    </span>
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuItem>
+                                                    View order
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    Customer details
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell className="font-medium">
+                                        #1233
+                                    </TableCell>
+                                    <TableCell>
+                                        <div className="font-medium">
+                                            Ava Johnson
+                                        </div>
+                                        <div className="text-sm text-muted-foreground">
+                                            ava@example.com
+                                        </div>
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        January 5, 2023
+                                    </TableCell>
+                                    <TableCell className="hidden md:table-cell">
+                                        $74.99
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        <Badge variant="secondary">Paid</Badge>
+                                    </TableCell>
+                                    <TableCell className="text-right">
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                >
+                                                    <MoveHorizontalIcon className="h-4 w-4" />
+                                                    <span className="sr-only">
+                                                        Actions
+                                                    </span>
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuItem>
+                                                    View order
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    Customer details
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell className="font-medium">
+                                        #1232
+                                    </TableCell>
+                                    <TableCell>
+                                        <div className="font-medium">
+                                            Michael Johnson
+                                        </div>
+                                        <div className="text-sm text-muted-foreground">
+                                            michael@example.com
+                                        </div>
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        August 3, 2022
+                                    </TableCell>
+                                    <TableCell className="hidden md:table-cell">
+                                        $64.75
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        <Badge variant="outline">
+                                            Unfulfilled
+                                        </Badge>
+                                    </TableCell>
+                                    <TableCell className="text-right">
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"

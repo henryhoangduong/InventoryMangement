@@ -1,11 +1,8 @@
 import {
-    WalletCards,
     User,
     Barcode,
     Settings,
     LayoutDashboard,
-    ContactRound,
-    CalendarArrowUpIcon,
     Container,
     Building2,
     Store,
@@ -34,11 +31,6 @@ const items = [
         icon: LayoutDashboard,
     },
     {
-        title: 'Customer',
-        url: '/customer',
-        icon: ContactRound,
-    },
-    {
         title: 'Users',
         url: '/users',
         icon: User,
@@ -47,11 +39,6 @@ const items = [
         title: 'Products',
         url: '/products',
         icon: Barcode,
-    },
-    {
-        title: 'Orders',
-        url: '/orders',
-        icon: CalendarArrowUpIcon,
     },
     {
         title: 'Suppliers',

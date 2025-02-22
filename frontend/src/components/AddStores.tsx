@@ -24,7 +24,7 @@ import { Input } from './ui/input';
 import { cn } from '../lib/utils';
 import SelectCompaniesComobox from './SelectCompaniesComobox';
 const AddStores = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     const theme = useTheme();
 
     const form = useForm<AddStoreType>();

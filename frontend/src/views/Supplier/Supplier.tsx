@@ -45,22 +45,14 @@ const Supplier = () => {
                         <TableRow>
                             <TableHead className="text-center">Id</TableHead>
                             <TableHead className="text-center">
-                                Avatar
+                                Supplier Name
                             </TableHead>
-                            <TableHead className="text-center">
-                                First Name
-                            </TableHead>
+                            <TableHead className="text-center">Email</TableHead>
                             <TableHead className="hidden sm:table-cell text-center">
-                                Last Name
+                                Phone
                             </TableHead>
                             <TableHead className="hidden md:table-cell text-center">
-                                Email
-                            </TableHead>
-                            <TableHead className="hidden sm:table-cell text-center">
-                                User Name
-                            </TableHead>
-                            <TableHead className="text-center">
-                                Status
+                                Address
                             </TableHead>
                         </TableRow>
                     </TableHeader>
@@ -69,6 +61,10 @@ const Supplier = () => {
                             return (
                                 <TableRow key={index}>
                                     <TableCell>{item.supplierId} </TableCell>
+                                    <TableCell>{item.supplierName} </TableCell>
+                                    <TableCell>{item.email} </TableCell>
+                                    <TableCell>{item.phone} </TableCell>
+                                    <TableCell>{item.address} </TableCell>
                                 </TableRow>
                             );
                         })}
